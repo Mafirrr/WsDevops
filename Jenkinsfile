@@ -5,7 +5,7 @@ node {
     }
 
     stage('Build') {
-        docker.image('php:8.4-cli').inside('--entrypoint="" -u root') {
+        docker.image('php:8.2-cli').inside('--network host --dns 8.8.8.8 --dns 8.8.4.4 --entrypoint="" -u root') {
             sh '''
             apt-get update
             apt-get install -y git unzip libzip-dev curl
