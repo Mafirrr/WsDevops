@@ -34,7 +34,7 @@ node {
             mkdir -p ~/.ssh
             ssh-keyscan -H $PROD_HOST >> ~/.ssh/known_hosts
 
-            rsync -rav --delete \
+            rsync -ravz --delete -e "ssh -o StrictHostKeyChecking=no" \
                 --exclude=.env \
                 --exclude=storage \
                 --exclude=.git \
@@ -42,6 +42,6 @@ node {
             '''
         }
     }
-    }
+}
 
 }
