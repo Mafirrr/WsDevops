@@ -1,8 +1,8 @@
 node {
 
-    stage('Checkout') {
-        checkout scm
-    }
+   stage('Checkout') {
+    git branch: 'main', url: 'https://github.com/Mafirrr/WsDevops.git'
+}
 
     stage('Build') {
         docker.image('php:8.2-cli').inside('--entrypoint="" -u root') {
