@@ -1,7 +1,7 @@
 node {
 
  stage('Checkout') {
-        git branch: 'main', url: 'https://github.com/Mafirrr/WsDevops.git'
+        checkout scm
     }
 
     stage('Build') {
